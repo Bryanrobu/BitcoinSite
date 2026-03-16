@@ -1,0 +1,50 @@
+/* src/components/Header/Header.css */
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #1E293B;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.header-spacer {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+
+.header-input {
+    border-radius: 10px;
+    border: none;
+    width: 60%;
+    padding: 5px;
+    padding-left: 20px;
+    font-size: 1.6rem;
+}
+
+.header-input::placeholder {
+    color: #475569;
+}
+
+.header-input:hover {
+    background-color: #d3d3d3;
+}
+
+.header-select {
+    width: auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.2rem;
+    text-align: center;
+    appearance: none;
+}.header-select:hover {
+    background-color: #d3d3d3;
+    cursor: pointer;
+ }
+ .header-option {
+     background-color: #ffffff;
+ }

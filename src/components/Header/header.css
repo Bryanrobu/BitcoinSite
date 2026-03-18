@@ -1,50 +1,78 @@
-/* src/components/Header/Header.css */
-
 .header {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    background-color: #1E293B;
+    background: #1E293B;
     padding: 20px;
     margin-bottom: 20px;
 }
 
 .header-spacer {
-    width: 85%;
+    width: 90%;
+    max-width: 1200px;
     display: flex;
-    justify-content: center;
-    gap: 5%;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-input,
+.header-select {
+    border-radius: 10px;
+    border: none;
+    padding: 12px 20px;
+    outline: none;
+    transition: all 0.2s ease;
 }
 
 .header-input {
-    border-radius: 10px;
-    border: none;
-    width: 60%;
-    padding: 5px;
-    padding-left: 20px;
-    font-size: 1.6rem;
+    flex-grow: 1;
+    font-size: 1.2rem;
 }
 
 .header-input::placeholder {
     color: #475569;
 }
 
-.header-input:hover {
-    background-color: #d3d3d3;
+.header-select {
+    appearance: none;
+    background: #fff;
+    min-width: 140px;
+    font-size: 1.1rem;
+    text-align: center;
+    cursor: pointer;
 }
 
-.header-select {
-    width: auto;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    font-size: 1.2rem;
-    text-align: center;
-    appearance: none;
-}.header-select:hover {
-    background-color: #d3d3d3;
-    cursor: pointer;
- }
- .header-option {
-     background-color: #ffffff;
- }
+.header-input:hover,
+.header-select:hover {
+    background: #d3d3d3;
+}
+
+.header-select:hover {
+    transform: scale(1.05);
+}
+
+.header-select:active {
+    transform: scale(0.96);
+}
+
+.header-option {
+    background: #fff;
+    color: #1E293B;
+}
+
+@media (max-width: 600px) {
+    .header-spacer {
+        flex-direction: column;
+        width: 80%;
+        gap: 15px;
+    }
+
+    .header-input,
+    .header-select {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .header-select {
+        min-width: 0;
+    }
+}

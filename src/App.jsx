@@ -7,10 +7,8 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                {/* Homepage */}
                 <Route path="/" element={<Home />} />
 
-                {/* Detail page - :id handles BTC, ETH, etc. */}
                 <Route path="/coin/:id" element={<CoinDetail />} />
             </Routes>
         </BrowserRouter>

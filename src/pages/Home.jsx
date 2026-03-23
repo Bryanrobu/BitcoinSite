@@ -28,12 +28,16 @@ export default function Home() {
     };
 
     useEffect(() => {
-        setLoading(true);
         fetch(`https://data-api.coindesk.com/asset/v1/top/list?page=1&page_size=${pageSize}&sort_by=${filter}&sort_direction=${direction}&groups=ID,BASIC,SUPPLY,PRICE,MKT_CAP,VOLUME,CHANGE,TOPLIST_RANK&toplist_quote_asset=USD`)
             .then(res => res.json())
-            .then(json => setCoindeskData(json?.Data?.LIST || []))
-            .catch(err => console.error("Fetch error:", err))
-            .finally(() => setLoading(false));
+            .then(json => {
+                setCoindeskData(json?.Data?.LIST || []);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Fetch error:", err);
+                setLoading(false);
+            });
     }, [pageSize, filter, direction]);
 
     const displayCoins = coindeskData
@@ -56,7 +60,7 @@ export default function Home() {
             />
 
             <div className="container">
-                {loading ? (
+                {loading && coindeskData.length === 0 ? (
                     <p>Loading market data...</p>
                 ) : (
                     displayCoins.map(item => (
